@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
   <title>ITC STORE | Moda Masculina y Femenina</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +15,8 @@
     body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); line-height:1.5; overflow-x:hidden; }
     header { position:sticky; top:0; z-index:100; background:rgba(10,10,10,.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
     .header-inner { max-width:1400px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-    .logo { text-decoration:none; color:var(--text); }
+    .logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text); }
+    .logo-mark { width:46px; height:46px; border-radius:50%; object-fit:cover; background:#111; }
     .logo-text { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:2px; line-height:1; }
     .logo-sub { font-size:.65rem; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase; }
     nav { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
@@ -74,8 +77,11 @@
   <header>
     <div class="header-inner">
       <a href="#" class="logo">
-        <div class="logo-text">ITC STORE</div>
-        <div class="logo-sub">Moda Masculina y Femenina</div>
+        <img class="logo-mark" src="favicon.svg" alt="ITC STORE">
+        <div>
+          <div class="logo-text">ITC STORE</div>
+          <div class="logo-sub">Moda Masculina y Femenina</div>
+        </div>
       </a>
       <nav>
         <a href="#polos">Polos</a>
@@ -89,12 +95,17 @@
   </header>
   <section class="hero" id="hero">
     <div class="slide active"><img src="hfghfg.png" alt="Miguel Angel"></div>
+    <div class="slide"><img src="rthrthrth.png" alt="Lest Go"></div>
+    <div class="slide"><img src="trhrth.png" alt="Redemption"></div>
+    <div class="slide"><img src="thrthtr.png" alt="Paloma Despertar"></div>
     <div class="slide"><img src="xfghxfgh.png" alt="Porsche"></div>
     <div class="slide"><img src="yuttyuty.png" alt="Scarface"></div>
-    <div class="slide"><img src="uityu.png" alt="Short"></div>
-    <div class="slide"><img src="DFG.png" alt="Jogger"></div>
-    <div class="slide"><img src="456456.png" alt="Baggy"></div>
-    <div class="slide"><img src="123123.png" alt="Hoodie"></div>
+    <div class="slide"><img src="fghfgh.png" alt="Cruz"></div>
+    <div class="slide"><img src="rthrth.png" alt="Aghata Loss"></div>
+    <div class="slide"><img src="sfths.png" alt="True Love"></div>
+    <div class="slide"><img src="dghfj.png" alt="Corazon Azul"></div>
+    <div class="slide"><img src="yuiyuiyui.png" alt="Los Angeles"></div>
+    <div class="slide"><img src="fghfghfghfgh.png" alt="Lightfull Sky"></div>
     <div class="hero-shade"></div>
     <div class="hero-content">
       <h1>ITC STORE</h1>
@@ -210,7 +221,7 @@
   </footer>
   <script>
     const slides = document.querySelectorAll('.slide');
-    const labels = ['Miguel Angel','Porsche','Scarface','Short','Jogger','Baggy','Hoodie'];
+    const labels = ['Miguel Angel','Lest Go','Redemption','Paloma Despertar','Porsche','Scarface','Cruz','Aghata Loss','True Love','Corazon Azul','Los Angeles','Lightfull Sky'];
     const dotsBox = document.getElementById('dots');
     const labelEl = document.getElementById('slideLabel');
     let i = 0, timer;
