@@ -18,334 +18,47 @@
       --border: #2a2a2a;
       --hover: #1f1f1f;
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .logo img {
-      height: 48px;
-      width: auto;
-    }
-
-    .logo-text {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-      line-height: 1;
-    }
-
-    .logo-sub {
-      font-size: 0.65rem;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 999px;
-      transition: all 0.2s;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--text);
-      background: var(--hover);
-    }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      height: 70vh;
-      min-height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 0 24px;
-    }
-
-    .hero-logo {
-      width: 180px;
-      margin-bottom: 24px;
-      filter: drop-shadow(0 0 30px rgba(255,255,255,0.15));
-    }
-
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      letter-spacing: 4px;
-      margin-bottom: 12px;
-      line-height: 1;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      font-weight: 300;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      background: var(--text);
-      color: var(--bg);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-radius: 4px;
-      transition: all 0.2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255,255,255,0.15);
-    }
-
-    /* Sections */
-    section {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 64px 24px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 32px;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .section-header h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.4rem;
-      letter-spacing: 2px;
-    }
-
-    .section-header span {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* Product Grid */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .product-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      border-color: #444;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-
-    .product-image {
-      position: relative;
-      aspect-ratio: 3/4;
-      background: #0d0d0d;
-      overflow: hidden;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.05);
-    }
-
-    .product-info {
-      padding: 16px;
-    }
-
-    .product-info h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .product-info .color {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* Banner */
-    .banner {
-      background: var(--bg-section);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 48px 24px;
-      text-align: center;
-    }
-
-    .banner h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    .banner p {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Footer */
-    footer {
-      background: #050505;
-      border-top: 1px solid var(--border);
-      padding: 48px 24px 24px;
-    }
-
-    .footer-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-brand img {
-      height: 48px;
-      margin-bottom: 16px;
-    }
-
-    .footer-brand p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      max-width: 300px;
-    }
-
-    .footer-col h4 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 16px;
-      color: var(--text);
-    }
-
-    .footer-col a {
-      display: block;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover {
-      color: var(--text);
-    }
-
-    .footer-bottom {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-
-    @media (max-width: 768px) {
-      .header-inner {
-        flex-direction: column;
-        gap: 12px;
-      }
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
-      .hero {
-        height: 60vh;
-      }
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; overflow-x: hidden; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .header-inner { max-width: 1400px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+    .logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; line-height: 1; }
+    .logo-sub { font-size: 0.65rem; letter-spacing: 1px; color: var(--text-muted); text-transform: uppercase; }
+    nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 8px 14px; border-radius: 999px; transition: all 0.2s; text-transform: uppercase; letter-spacing: 0.5px; }
+    nav a:hover, nav a.active { color: var(--text); background: var(--hover); }
+    .hero { position: relative; height: 70vh; min-height: 480px; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%); overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%); }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 24px; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: 4px; margin-bottom: 12px; line-height: 1; }
+    .hero p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px; font-weight: 300; }
+    .btn { display: inline-block; padding: 14px 32px; background: var(--text); color: var(--bg); text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; border-radius: 4px; transition: all 0.2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.15); }
+    section { max-width: 1400px; margin: 0 auto; padding: 64px 24px; }
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; gap: 16px; flex-wrap: wrap; }
+    .section-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; letter-spacing: 2px; }
+    .section-header span { color: var(--text-muted); font-size: 0.9rem; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+    .product-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.3s ease; cursor: pointer; }
+    .product-card:hover { transform: translateY(-6px); border-color: #444; box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .product-image { position: relative; aspect-ratio: 3/4; background: #0d0d0d; overflow: hidden; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .product-card:hover .product-image img { transform: scale(1.05); }
+    .product-info { padding: 16px; }
+    .product-info h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+    .product-info .color { font-size: 0.8rem; color: var(--text-muted); }
+    .banner { background: var(--bg-section); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 48px 24px; text-align: center; }
+    .banner h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 12px; }
+    .banner p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+    footer { background: #050505; border-top: 1px solid var(--border); padding: 48px 24px 24px; }
+    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand p { color: var(--text-muted); font-size: 0.9rem; max-width: 300px; }
+    .footer-col h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: var(--text); }
+    .footer-col a { display: block; color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.8rem; }
+    @media (max-width: 768px) { .header-inner { flex-direction: column; gap: 12px; } .footer-inner { grid-template-columns: 1fr; } .hero { height: 60vh; } }
   </style>
 </head>
 <body>
@@ -382,14 +95,18 @@
       <span>Streetwear premium</span>
     </div>
     <div class="product-grid">
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Miguel Angel</h3><div class="color">Azul Marino</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Lest Go</h3><div class="color">Verde Militar</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Redemption</h3><div class="color">Plomo</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Paloma Despertar</h3><div class="color">Plomo</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Porsche</h3><div class="color">Negro</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Scarface</h3><div class="color">Negro</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Cruz</h3><div class="color">Negro</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Aghata Loss</h3><div class="color">Beige</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="hfghfg.png" alt="Miguel Angel" loading="lazy"></div><div class="product-info"><h3>Miguel Angel</h3><div class="color">Azul Marino</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="rthrthrth.png" alt="Lest Go" loading="lazy"></div><div class="product-info"><h3>Lest Go</h3><div class="color">Verde Militar</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="trhrth.png" alt="Redemption" loading="lazy"></div><div class="product-info"><h3>Redemption</h3><div class="color">Plomo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="thrthtr.png" alt="Paloma Despertar" loading="lazy"></div><div class="product-info"><h3>Paloma Despertar</h3><div class="color">Plomo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="xfghxfgh.png" alt="Porsche" loading="lazy"></div><div class="product-info"><h3>Porsche</h3><div class="color">Negro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="yuttyuty.png" alt="Scarface" loading="lazy"></div><div class="product-info"><h3>Scarface</h3><div class="color">Negro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="fghfgh.png" alt="Cruz" loading="lazy"></div><div class="product-info"><h3>Cruz</h3><div class="color">Negro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="rthrth.png" alt="Aghata Loss" loading="lazy"></div><div class="product-info"><h3>Aghata Loss</h3><div class="color">Beige</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="sfths.png" alt="True Love" loading="lazy"></div><div class="product-info"><h3>True Love</h3><div class="color">Beige</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="dghfj.png" alt="Corazón Azul" loading="lazy"></div><div class="product-info"><h3>Corazón Azul</h3><div class="color">Perla</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="yuiyuiyui.png" alt="Los Angeles" loading="lazy"></div><div class="product-info"><h3>Los Angeles</h3><div class="color">Perla</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="fghfghfghfgh.png" alt="Lightfull Sky" loading="lazy"></div><div class="product-info"><h3>Lightfull Sky</h3><div class="color">Azul Marino</div></div></div>
     </div>
   </section>
 
@@ -399,10 +116,16 @@
       <span>Variedad de colores</span>
     </div>
     <div class="product-grid">
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Shorts</h3><div class="color">Azul</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Shorts</h3><div class="color">Turquesa</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Shorts</h3><div class="color">Topo</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Shorts</h3><div class="color">Verde Militar</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="uityu.png" alt="Short Azul" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Azul</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="dfgdfgdf.png" alt="Short Turquesa" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Turquesa</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="dfgdfgdfg.jpeg" alt="Short Topo" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Topo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="ergreg.jpeg" alt="Short Verde Militar" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Verde Militar</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="rthrth.jpeg" alt="Short Azul Marino" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Azul Marino</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="trhr.jpeg" alt="Short Plomo Rata" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Plomo Rata</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="tjyrh.jpeg" alt="Short Plata" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Plata</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="defs.jpeg" alt="Short Beige" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Beige</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="SDF.jpeg" alt="Short Blanco" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Blanco</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="AERG.jpeg" alt="Short Negro" loading="lazy"></div><div class="product-info"><h3>Short Deportivo</h3><div class="color">Negro</div></div></div>
     </div>
   </section>
 
@@ -412,10 +135,19 @@
       <span>Comodidad premium</span>
     </div>
     <div class="product-grid">
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Jogger</h3><div class="color">Blanco</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Jogger</h3><div class="color">Azul</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Jogger</h3><div class="color">Negro</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Jogger</h3><div class="color">Beige</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="DFG.png" alt="Jogger Blanco" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Blanco</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="FDGDFG.png" alt="Jogger Azul" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Azul</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="ASDFG.png" alt="Jogger Marrón" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Marrón</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="xcfxcvx.png" alt="Jogger Rojo" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Rojo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="xsdfsdf.png" alt="Jogger Verde Agua" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Verde Agua</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="destrsdfsdf.jpeg" alt="Jogger Topo" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Topo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="hghghgh.png" alt="Jogger Turquesa" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Turquesa</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="sdfsdf.jpeg" alt="Jogger Guinda" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Guinda</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="cgdsfg.jpeg" alt="Jogger Verde" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Verde</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="ertertert.jpeg" alt="Jogger Azul Marino" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Azul Marino</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="werwerwer.jpeg" alt="Jogger Plomo" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Plomo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="qweqweqwe.jpeg" alt="Jogger Beige" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Beige</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="asdasdasda.jpeg" alt="Jogger Negro" loading="lazy"></div><div class="product-info"><h3>Jogger</h3><div class="color">Negro</div></div></div>
     </div>
   </section>
 
@@ -425,10 +157,12 @@
       <span>Fits modernos</span>
     </div>
     <div class="product-grid">
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Baggy</h3><div class="color">Vainilla</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Baggy</h3><div class="color">Plomo Oscuro</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Baggy</h3><div class="color">Negro</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Baggy</h3><div class="color">Hielo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="456456.png" alt="Baggy Vainilla" loading="lazy"></div><div class="product-info"><h3>Baggy</h3><div class="color">Vainilla</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="456456456.png" alt="Baggy Plomo Oscuro" loading="lazy"></div><div class="product-info"><h3>Baggy</h3><div class="color">Plomo Oscuro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="456456456456.png" alt="Baggy Negro" loading="lazy"></div><div class="product-info"><h3>Baggy</h3><div class="color">Negro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="7856546456.png" alt="Baggy Hielo" loading="lazy"></div><div class="product-info"><h3>Baggy</h3><div class="color">Hielo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="69456456.png" alt="Baggy Cristal" loading="lazy"></div><div class="product-info"><h3>Baggy</h3><div class="color">Cristal</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="453453.png" alt="Baggy Clásico" loading="lazy"></div><div class="product-info"><h3>Baggy</h3><div class="color">Clásico</div></div></div>
     </div>
   </section>
 
@@ -438,10 +172,10 @@
       <span>Básicos y gráficos</span>
     </div>
     <div class="product-grid">
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Básico</h3><div class="color">Negro</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Básico</h3><div class="color">Blanco</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Crazy Cupid</h3><div class="color">Beige</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Surpass</h3><div class="color">Plomo</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="123123.png" alt="Hoodie Básico" loading="lazy"></div><div class="product-info"><h3>Básico</h3><div class="color">Negro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="756456.png" alt="Hoodie Básico" loading="lazy"></div><div class="product-info"><h3>Básico</h3><div class="color">Blanco</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="uityu.png" alt="Crazy Cupid" loading="lazy"></div><div class="product-info"><h3>Crazy Cupid</h3><div class="color">Beige</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="dfgdfgdf.png" alt="Surpass" loading="lazy"></div><div class="product-info"><h3>Surpass</h3><div class="color">Plomo</div></div></div>
     </div>
   </section>
 
@@ -451,10 +185,10 @@
       <span>Rayas y sólidos</span>
     </div>
     <div class="product-grid">
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Negro Rayas</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Rosado Rayas</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Celeste Rayas</div></div></div>
-      <div class="product-card"><div class="product-image" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;color:#666;">Imagen</div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Negro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="1.jpeg" alt="Camisa Negro" loading="lazy"></div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Negro</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="111.jpeg" alt="Camisa" loading="lazy"></div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Rayas</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="444.jpeg" alt="Camisa" loading="lazy"></div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Celeste</div></div></div>
+      <div class="product-card"><div class="product-image"><img src="WhatsApp Image 2026-11-06 at 10.04.51 AM.jpeg" alt="Camisa Blanco" loading="lazy"></div><div class="product-info"><h3>Boxy Fit</h3><div class="color">Blanco</div></div></div>
     </div>
   </section>
 
