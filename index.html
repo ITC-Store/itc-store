@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <title>ITC STORE | Moda Masculina e Feminina</title>
+  <title>ITC STORE | Moda masculina y femenina</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,9 @@
     header { position:sticky; top:0; z-index:100; background:rgba(10,10,10,.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
     .header-inner { max-width:1400px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
     .logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text); }
-    .logo-mark { height:118px; width:auto; display:block; }
+    .logo { flex-direction:column; align-items:flex-start; gap:2px; }
+    .logo-mark { height:104px; width:auto; display:block; }
+    .logo-sub { font-size:.68rem; letter-spacing:1.6px; text-transform:uppercase; color:#e8e8e8; }
     .logo-text { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:2px; line-height:1; }
     .logo-sub { font-size:.65rem; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase; }
     nav { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
@@ -45,8 +47,9 @@
     .section-header h2 { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; letter-spacing:2px; }
     .section-header span { color:var(--text-muted); font-size:.9rem; }
     .product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:24px; }
-    .product-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; overflow:hidden; transition:.3s; }
-    .product-card:hover { transform:translateY(-6px); border-color:#444; }
+    .product-card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; overflow:hidden; opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease, border-color .3s; }
+    .product-card.show { opacity:1; transform:none; }
+    .product-card.show:hover { transform:translateY(-6px); border-color:#444; }
     .product-image { aspect-ratio:3/4; background:#0d0d0d; overflow:hidden; }
     .product-image img { width:100%; height:100%; object-fit:cover; transition:.4s; }
     .product-card:hover .product-image img { transform:scale(1.05); }
@@ -60,9 +63,13 @@
     .footer-inner { max-width:1400px; margin:0 auto 40px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; }
     .footer-brand p, .footer-col a, .footer-bottom { color:var(--text-muted); }
     .footer-col h4 { font-size:.85rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
-    .footer-col a { display:block; text-decoration:none; font-size:.9rem; margin-bottom:10px; }
+    .footer-col a, .footer-col .ship { display:block; text-decoration:none; font-size:.9rem; margin-bottom:10px; color:var(--text-muted); }
     .footer-col a:hover { color:#fff; }
     .footer-bottom { max-width:1400px; margin:0 auto; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:.8rem; }
+
+    .wsp { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; background:#25D366; color:#042; text-decoration:none; font-weight:700; font-size:.8rem; letter-spacing:.3px; padding:10px 12px; border-radius:8px; }
+    .wsp:hover { filter:brightness(1.08); }
+    .wsp svg { width:16px; height:16px; fill:#042; }
     @media (max-width:768px) {
       .header-inner { flex-direction:column; }
       .footer-inner { grid-template-columns:1fr; }
@@ -77,7 +84,8 @@
   <header>
     <div class="header-inner">
       <a href="#" class="logo">
-        <img class="logo-mark" src="logo.png" alt="ITC STORE">
+        <img class="logo-mark" src="logo.png?v=2" alt="ITC STORE">
+        <span class="logo-sub">Moda masculina y femenina</span>
       </a>
       <nav>
         <a href="#polos">Polos</a>
@@ -104,7 +112,7 @@
     <div class="hero-shade"></div>
     <div class="hero-content">
       <h1>ITC STORE</h1>
-      <p>Moda Masculina e Feminina. Streetwear con identidad, calidad y actitud.</p>
+      <p>Moda masculina y femenina. Streetwear con identidad, calidad y actitud.</p>
       <a href="#polos" class="btn">Ver Colección</a>
     </div>
     <button class="arrow prev" type="button" aria-label="Anterior">&#8249;</button>
@@ -187,7 +195,7 @@
   </div>
   <footer>
     <div class="footer-inner">
-      <div class="footer-brand"><p>ITC STORE — Moda Masculina e Feminina. Streetwear con identidad, calidad y actitud.</p></div>
+      <div class="footer-brand"><p>ITC STORE — Moda masculina y femenina. Streetwear con identidad, calidad y actitud.</p></div>
       <div class="footer-col">
         <h4>Categorías</h4>
         <a href="#polos">Polos Oversized</a>
@@ -199,8 +207,7 @@
       <div class="footer-col">
         <h4>Información</h4>
         <a href="#">Sobre nosotros</a>
-        <a href="#">Envíos</a>
-        <a href="#">Cambios y devoluciones</a>
+        <span class="ship">Envío a nivel nacional</span>
         <a href="#">Contacto</a>
       </div>
     </div>
@@ -233,6 +240,31 @@
     document.querySelector('.arrow.next').addEventListener('click', () => go(i + 1));
     document.querySelector('.arrow.prev').addEventListener('click', () => go(i - 1));
     restart();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const card = entry.target;
+        const cards = [...card.parentElement.children];
+        const idx = cards.indexOf(card);
+        card.style.transitionDelay = (idx % 4) * 80 + 'ms';
+        card.classList.add('show');
+        io.unobserve(card);
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.product-card').forEach((card) => {
+      io.observe(card);
+      const name = card.querySelector('h3').textContent.trim();
+      const color = card.querySelector('.color').textContent.trim();
+      const msg = 'Hola, quiero información sobre ' + name + ' (' + color + ')';
+      const a = document.createElement('a');
+      a.className = 'wsp';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.href = 'https://wa.me/51951754477?text=' + encodeURIComponent(msg);
+      a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 2.1 17.8L1 23l5.4-1.4A11 11 0 0 0 20.5 3.5zm-8.5 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.2.8.9-3.1-.2-.3A9.1 9.1 0 1 1 12 20.5zm5-6.8c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.2-.3a.5.5 0 0 0 0-.5c0-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4.1 15 15 0 0 0 1.5.6 3.6 3.6 0 0 0 1.7.1 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg> Consultar por WhatsApp';
+      card.querySelector('.product-info').appendChild(a);
+    });
   </script>
 </body>
 </html>
